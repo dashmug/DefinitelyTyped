@@ -16,6 +16,7 @@ interface APIGatewayEvent {
     requestContext: {
         accountId: string;
         apiId: string;
+        authorizer?: AuthResponse;
         httpMethod: string;
         identity: {
             accessKey: string | null;
@@ -325,7 +326,7 @@ interface Statement {
  * http://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html#api-gateway-custom-authorizer-output
  */
 interface AuthResponseContext {
-    [name: string]: string | number | boolean;
+    [name: string]: string;
 }
 
 /**
